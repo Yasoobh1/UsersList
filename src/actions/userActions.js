@@ -1,15 +1,9 @@
 import * as ActionTypes from './ActionTypes';
 
-export const getUsersList = () => {
-  console.log('🥰')
-  return (
-  
-    {
-    
-    type: ActionTypes.GET_USERS_LIST,
-    payload: {},
-  });
-}
+export const getUsersList = (payloadData) => ({
+  type: ActionTypes.GET_USERS_LIST,
+  payload: payloadData,
+});
 
 export const getUsersListSuccess = payloadData => ({
   type: ActionTypes.GET_USERS_LIST_SUCCESS,

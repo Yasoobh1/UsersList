@@ -10,32 +10,24 @@ const initialState = {
 };
 
 const userReducer = (state = initialState, action) => {
-  console.log({action},"action")
   switch (action.type) {
     case ActionTypes.GET_USERS_LIST: {
-      
+
       return {
         ...state,
         isLoading: true,
       };
     }
-    
+
     case ActionTypes.GET_USERS_LIST_SUCCESS: {
       return {
         ...state,
         isLoading: false,
         error: null,
-        usersList: action.payload
+        usersList: state.usersList.concat(action.payload)
       };
     }
-    
-    // case ActionTypes.INCREMENT_PAGE_SUCCESS: {
-    //   return {
-    //     ...state,
-    //     listPage: state.listPage + action.payload,
-    //   };
-    // }
-  
+
     default: {
       return state;
     }
